@@ -2,10 +2,16 @@
 energy_unit = int(input("Enter the energy consumption (kilowatt-hours): "))
 SERVICE_CHARGE = 24.62
 UNIT_RATE = 0
-if energy_unit >= 1 and energy_unit <= 150:
-    UNIT_RATE = 3.2484
-    electric_cost = energy_unit * UNIT_RATE
-if energy_unit >= 150 and energy_unit <= 400:
+if energy_unit >= 1 :
+    if energy_unit >150:
+        BASE_UNIT = 150
+        energy_between_1to_149 = energy_unit-BASE_UNIT 
+        UNIT_RATE = 3.2484
+        electric_cost = energy_between_1to_149 * UNIT_RATE
+    else:
+        UNIT_RATE = 3.2484
+        electric_cost = energy_unit * UNIT_RATE
+if energy_unit > 150 :
     energy_above_150 = energy_unit - 150
     UNIT_RATE = 4.2218
     cost_above_150 = energy_above_150 * UNIT_RATE
